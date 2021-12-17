@@ -16,4 +16,4 @@ def index(request):
 
 @login_required(login_url='/login/')
 def message(request):
-    return HttpResponseRedirect('index')
+    return redirect('index')
