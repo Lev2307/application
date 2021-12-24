@@ -1,1 +1,6 @@
-{{ profile }}
+{% extends 'base.html' %}
+
+{% block content %}
+    {{ profile }}
+    {{ chat_data.count }}
+{% endblock %}

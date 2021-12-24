@@ -5,6 +5,11 @@
 {% endblock %}
 
 {% block content %}
+    {% for i in s %}
+        <h1>{{ i.user }}</h1>
+        <h1>{{ i.text }}</h1>
+        <h1>{{ i.date }}</h1>
+    {% endfor %}
     <form action="/send/" method="post">
         {% csrf_token %}
         {{ form.as_p }}

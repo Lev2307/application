@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from chat.models import ChatModel
 
 # Create your views here.
 def registration_view(request):
@@ -42,4 +43,5 @@ def logout_view(request):
 @login_required(login_url="/login/")
 def profile_view(request):
     user = request.user
-    return render(request, "accounts/profile.html", {'profile': user})
+    qs = ChatModel.objects.filter(user=user)
+    return render(request, "accounts/profile.html", {'profile': user, 'chat_data': qs})

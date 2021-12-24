@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from chat.views import index, message
+from chat.views import index, send_view
 from accounts.views import registration_view, login_view, logout_view, profile_view
 
 urlpatterns = [
@@ -25,5 +25,5 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('profile/', profile_view, name='profile'),
-    path('send/', message, name='send-message')
+    path('send/', send_view, name='send-message')
 ]
