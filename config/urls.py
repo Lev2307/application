@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from chat.views import index, send_view
 from accounts.views import registration_view, login_view, logout_view, profile_view
+from subscribers.views import subs
 
 urlpatterns = [
     path('', index, name="index"),
@@ -25,5 +26,6 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('profile/', profile_view, name='profile'),
-    path('send/', send_view, name='send-message')
+    path('send/', send_view, name='send-message'),
+    path('subscribers/<int:pk>/', subs, name='subscribers')
 ]
