@@ -16,4 +16,17 @@
 
         <button type="submit">Chat</button>
     </form>
+
+    {% for i in chat %}
+
+        <p>
+            <mark>{{ i.user }} :</mark> {{ i.text }} ||| {{ i.date.time }}
+        </p>
+    {% endfor %}
+    {% for с in chat %}
+        <form action="subscribe/{{ c.user.id }}/" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Sub">
+        </form>
+    {% endfor %}
 {% endblock %}

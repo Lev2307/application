@@ -27,5 +27,5 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('profile/', profile_view, name='profile'),
     path('send/', send_view, name='send-message'),
-    path('subscribers/<int:pk>/', subs, name='subscribers')
+    path('subscribe/<int:pk>/', subs, name='subscribers')
 ]

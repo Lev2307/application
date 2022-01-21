@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from chat.models import ChatModel
+from subscribers.models import SubscribeModel
 
 # Create your views here.
 def registration_view(request):
@@ -44,4 +45,5 @@ def logout_view(request):
 def profile_view(request):
     user = request.user
     qs = ChatModel.objects.filter(user=user)
-    return render(request, "accounts/profile.html", {'profile': user, 'chat_data': qs})
+    friends_list = SubscribeModel.objects.filter(self_user=request.user)
+    return render(request, "accounts/profile.html", {'profile': user, 'chat_data': qs, 'friends_list': friends_list})

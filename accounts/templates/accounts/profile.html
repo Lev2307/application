@@ -3,4 +3,9 @@
 {% block content %}
     {{ profile }}
     {{ chat_data.count }}
+    {% for friend in friends_list %}
+        <p>
+            {{ friend.other_user.username }}
+        </p>
+    {% endfor %}
 {% endblock %}
